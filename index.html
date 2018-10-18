@@ -4,13 +4,12 @@
 		<meta name=”viewport” content=”width=device-width, initial-scale=1″>
 		<title>Snake Game</title>
 		<link rel="icon" type="image/png" href="https://lh6.googleusercontent.com/dY0PlvfHkL-D2M4p7yqePDu4xIvVqdMXerLmDE_IGCR0mc0OO360vZwfi01GCeI9BnbY9zw=w371"></link>
-		
 		<!-- Basic styling, centering of the canvas. -->
 		<style>
 			body {
 				background: lightgrey;
 			}
-			h1{
+			h1.title{
 				color: red;
 				font-size: 50px;
 			}
@@ -27,20 +26,66 @@
 				left: 0;
 				z-index: -1;
 			}
+			
+			input.settings {
+				align: center;
+				width: 30px;
+				height: 30px;
+				opacity: 1;
+				opacity: 0.4;
+				z-index: 1;
+				position: relative;
+				top: 5px;
+				left: 1210px;
+			}
+			
+			input.settings2:hover{
+				opacity: 1;
+			}
+			
+			img.pause{
+				position: relative;
+				top: 30px;
+				left: 700px;
+				height: 500px;
+				width: 500px;
+				opacity: 0.0;
+			}
+			
+			div.controls {
+				border: solid black;
+				width: 200px;
+				height: 200px;
+				position: relative;
+				left: 400px;
+				top: 150px;
+			}
+			
+			p.controls{
+				text-indent: 1em;
+			}
+			
 		</style>
 	</head>
 	<body>
-		<h1 align="center"> Let's Play Snake! </h1>
-		<input type="button" onclick="change()"> <div id="settings"> <img src='settings.png' style='opacity: 0.5; z-index: 1;'/> </div> </button> 
+		<br> <br>
+		<h1 align="center" class="title"> Let's Play Snake! </h1>
+		<input type="image" onclick="changeSetting()" src="settings.png" class="settings settings2" id="set" title="Walls set to off"> 
+		<br>
+		<div id="d1" class="controls"> <h1> Controls </h1> <p class="controls"> • [spacebar]: pause </p></div>
+		<img src="pause.png" class="pause" id="pause"/>
 		<script>
 			var
-			// Constats
-			COLS = 26, ROWS = 26, SNAKE = 1, FRUIT = 2, EMPTY = 3,
+			//constats
+			COLS = 30, ROWS = 30, SNAKE = 1, FRUIT = 2, EMPTY = 3,
 			LEFT  = 0, UP = 1, RIGHT = 2, DOWN  = 3,
-			KEY_LEFT  = 37, KEY_UP    = 38, KEY_RIGHT = 39, KEY_DOWN  = 40,
+			SPACE = 32, KEY_LEFT  = 37, KEY_UP    = 38, KEY_RIGHT = 39, KEY_DOWN  = 40,
 			
-			// Game objects
-			canvas, ctx, keystate, frames, score;
+			//game objects
+			canvas, ctx, keystate, frames, score,
+			
+			//other objects
+			pause = 0, setting = 1, image = document.getElementById("pause");
 
 			grid = {
 				width: null,  /* number, the number of columns */
@@ -116,8 +161,8 @@
 				// chooses a random cell
 				var randpos = empty[Math.round(Math.random()*(empty.length - 1))];
 				grid.set(FRUIT, randpos.x, randpos.y);
-			}
 
+			}
 			function play() {
 				// create and initiate the canvas element
 				canvas = document.createElement("canvas");
@@ -150,24 +195,36 @@
 				grid.set(SNAKE, sp.x, sp.y);
 				setFood();
 			}
-
-			function change(){
-				if (settings.innerHTML == "<img src='settings.png' style='opacity: 0.5; z-index: 1;'/>"){
-					settings.innerHTML = "<img src='settings2.png' style='opacity: 0.5; z-index: 1;'/>";
-				}
-				else{
-					settings.innerHTML == "<img src='settings.png' style='opacity: 0.5; z-index: 1;'/>";
-				}
-			}
 			
 			function loop() {
-				update();
-				draw();
-
+				if (keystate[SPACE]){
+					pause++;
+				}
+				if (pause % 2 == 0){
+					image.opacity = 0;
+					switch (setting){
+						case 1:
+							updateWallsOff();
+							draw();
+							break;
+						case 2:
+							updateWallsOn()
+							draw();
+							break;
+					}
+				}
+				else{
+					image.opacity = 1;
+				}
+				
 				window.requestAnimationFrame(loop, canvas);
 			}
+			
+			function updateWallsOn() {
+				frames++;
+			}
 
-			function update() {
+			function updateWallsOff() {
 				frames++;
 				
 				// changing direction of the snake depending on which keys
@@ -241,6 +298,7 @@
 					grid.set(SNAKE, nx, ny);
 					snake.insert(nx, ny);
 				}
+				
 			}
 
 			function draw() {
@@ -270,6 +328,19 @@
 				ctx.fillStyle = "White";
 				
 				ctx.fillText("SCORE: " + score, 10, canvas.height-10);
+			}
+			
+			function changeSetting(){
+				if (setting == 1){
+					document.getElementById("set").src = "settings2.png";
+					document.getElementById("set").title = "Walls set to on";
+					setting = 2;
+				}
+				else{
+					document.getElementById("set").src = "settings.png";
+					document.getElementById("set").title = "Walls set to off";
+					setting = 1;
+				}
 			}
 
 			play();
