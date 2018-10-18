@@ -25,15 +25,17 @@
 				bottom: 0;
 				right: 0;
 				left: 0;
+				z-index: -1;
 			}
 		</style>
 	</head>
 	<body>
 		<h1 align="center"> Let's Play Snake! </h1>
+		<input type="button" onclick="change()"> <div id="settings"> <img src='settings.png' style='opacity: 0.5; z-index: 1;'/> </div> </button> 
 		<script>
 			var
 			// Constats
-			COLS = 35, ROWS = 35, EMPTY = 3, SNAKE = 1, FRUIT = 2,
+			COLS = 26, ROWS = 26, SNAKE = 1, FRUIT = 2, EMPTY = 3,
 			LEFT  = 0, UP = 1, RIGHT = 2, DOWN  = 3,
 			KEY_LEFT  = 37, KEY_UP    = 38, KEY_RIGHT = 39, KEY_DOWN  = 40,
 			
@@ -149,6 +151,15 @@
 				setFood();
 			}
 
+			function change(){
+				if (settings.innerHTML == "<img src='settings.png' style='opacity: 0.5; z-index: 1;'/>"){
+					settings.innerHTML = "<img src='settings2.png' style='opacity: 0.5; z-index: 1;'/>";
+				}
+				else{
+					settings.innerHTML == "<img src='settings.png' style='opacity: 0.5; z-index: 1;'/>";
+				}
+			}
+			
 			function loop() {
 				update();
 				draw();
@@ -161,16 +172,16 @@
 				
 				// changing direction of the snake depending on which keys
 				// that are pressed
-				if (keystate[KEY_LEFT] && snake.direction !== RIGHT) {
+				if (keystate[KEY_LEFT] && snake.direction !== RIGHT && !keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_RIGHT]) {
 					snake.direction = LEFT;
 				}
-				if (keystate[KEY_UP] && snake.direction !== DOWN) {
+				if (keystate[KEY_UP] && snake.direction !== DOWN && !keystate[KEY_LEFT] && !keystate[KEY_DOWN] && !keystate[KEY_RIGHT]) {
 					snake.direction = UP;
 				}
-				if (keystate[KEY_RIGHT] && snake.direction !== LEFT) {
+				if (keystate[KEY_RIGHT] && snake.direction !== LEFT && !keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_LEFT]) {
 					snake.direction = RIGHT;
 				}
-				if (keystate[KEY_DOWN] && snake.direction !== UP) {
+				if (keystate[KEY_DOWN] && snake.direction !== UP && !keystate[KEY_UP] && !keystate[KEY_LEFT] && !keystate[KEY_RIGHT]) {
 					snake.direction = DOWN;
 				}
 				
