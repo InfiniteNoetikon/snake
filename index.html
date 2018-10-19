@@ -18,6 +18,14 @@
 				margin-left: auto;
 			}
 			
+			html, body, {
+				position:fixed;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+			}
+			
 			h1.title{
 				position: absolute;
 				margin-left: auto;
@@ -64,6 +72,8 @@
 			
 			img.pause{
 				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
 				top: 35%;
 				right: 0;
 				left: 0;
@@ -90,14 +100,12 @@
 		</style>
 	</head>
 	<body>
-		<div id="wrapper">
 		<br> <br>
 			<h1 align="center" class="title"> Let's Play Snake! </h1>
 			<input type="image" onclick="changeSetting()" src="settings.png" class="settings settings2" id="set" title="Walls set to off"> 
 			<br>
 			<div id="d1" class="controls"> <h1> Controls </h1> <p class="controls"> • [spacebar]: pause </p></div>
 			<img src="pause.png" class="pause" id="pause"/>
-		</div>
 		<script>
 			var
 			//constats
