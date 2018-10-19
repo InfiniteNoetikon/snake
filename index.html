@@ -9,6 +9,15 @@
 			body {
 				background: lightgrey;
 			}
+			
+			#wrapper
+			{
+				background: red;
+				width: 100%;
+				margin-right: auto;
+				margin-left: auto;
+			}
+			
 			h1.title{
 				position: absolute;
 				margin-left: auto;
@@ -43,6 +52,8 @@
 				opacity: 0.4;
 				z-index: 1;
 				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
 				top: 29%;
 				left: 63%
 			}
@@ -54,21 +65,19 @@
 			img.pause{
 				position: absolute;
 				top: 35%;
-				margin-left: auto;
-				margin-right: auto;
 				right: 0;
 				left: 0;
 				height: 500px;
 				width: 500px;
-				opacity: 0.0;
+				opacity: 1.0;
 			}
 			
 			div.controls {
 				border: solid black;
-				backgroung: white;
+				background: white;
 				width: 13%;
 				height: 25%;
-				position: absolute;
+				position: fixed;
 				left: 20%;
 				top: 45%;
 				padding: 0.5;
@@ -81,12 +90,14 @@
 		</style>
 	</head>
 	<body>
+		<div id="wrapper">
 		<br> <br>
-		<h1 align="center" class="title"> Let's Play Snake! </h1>
-		<input type="image" onclick="changeSetting()" src="settings.png" class="settings settings2" id="set" title="Walls set to off"> 
-		<br>
-		<div id="d1" class="controls"> <h1> Controls </h1> <p class="controls"> • [spacebar]: pause </p></div>
-		<img src="pause.png" class="pause" id="pause"/>
+			<h1 align="center" class="title"> Let's Play Snake! </h1>
+			<input type="image" onclick="changeSetting()" src="settings.png" class="settings settings2" id="set" title="Walls set to off"> 
+			<br>
+			<div id="d1" class="controls"> <h1> Controls </h1> <p class="controls"> • [spacebar]: pause </p></div>
+			<img src="pause.png" class="pause" id="pause"/>
+		</div>
 		<script>
 			var
 			//constats
@@ -156,11 +167,6 @@
 				}
 			};
 			
-			function clickToRestart(){
-			
-				canvas.onclick = "init()";
-			}
-			
 			function setFood() {
 				var empty = [];
 				// iterate through the grid and find all empty cells
@@ -214,7 +220,7 @@
 					pause++;
 				}
 				if (pause % 2 == 0){
-					image.opacity = 0;
+					image.style.opacity = 0;
 					switch (setting){
 						case 1:
 							updateWallsOff();
@@ -227,7 +233,7 @@
 					}
 				}
 				else{
-					image.opacity = 1;
+					image.style.opacity = 1;
 				}
 				
 				window.requestAnimationFrame(loop, canvas);
@@ -417,6 +423,7 @@
 					setting = 1;
 				}
 			}
+			
 
 			play();
 		</script>
