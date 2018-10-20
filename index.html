@@ -865,18 +865,36 @@
 				frames++;
 				// changing direction of the snake depending on which keys
 				// that are pressed
-				if ((keystate[KEY_LEFT] && !keystate[KEY_UP] && !keystate[KEY_RIGHT] && !keystate[KEY_DOWN] && snake.direction !== RIGHT) || dirl) {
+				if (keystate[KEY_LEFT] && snake.direction !== RIGHT && !keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_RIGHT]) {
 					snake.direction = LEFT;
 				}
-				if ((keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_LEFT] && !keystate[KEY_RIGHT] && snake.direction !== DOWN) || diru) {
+				else if (dirl && snake.direction !== RIGHT && !dirr && !dird && !diru){
+					snake.direction = LEFT;
+				}
+				if (keystate[KEY_UP] && snake.direction !== DOWN && !keystate[KEY_LEFT] && !keystate[KEY_DOWN] && !keystate[KEY_RIGHT]) {
 					snake.direction = UP;
 				}
-				if ((keystate[KEY_RIGHT] && !keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_LEFT] && snake.direction !== LEFT) || dirr) {
+				else if(diru && snake.direction !== DOWN && !dirr && !dirl && !dird){
+					snake.direction = UP;
+				}
+				if (keystate[KEY_RIGHT] && snake.direction !== LEFT && !keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_LEFT]) {
 					snake.direction = RIGHT;
 				}
-				if ((keystate[KEY_DOWN] && !keystate[KEY_LEFT] && !keystate[KEY_UP] && !keystate[KEY_RIGHT] && snake.direction !== UP) || dird) {
+				else if(dirr && snake.direction !== LEFT && !dird && !dirl && !diru){
+					snake.direction = RIGHT;
+				}
+				if (keystate[KEY_DOWN] && snake.direction !== UP && !keystate[KEY_UP] && !keystate[KEY_LEFT] && !keystate[KEY_RIGHT]) {
 					snake.direction = DOWN;
 				}
+				else if (dird && snake.direction !== UP && !dirr && !dirl && !diru){
+					snake.direction = DOWN;
+				}
+				
+				dirr = false;
+				diru = false;
+				dirl = false;
+				dird = false;
+				
 				// each five frames update the game state.
 				if (frames%5 === 0) {
 					// pop the last element from the snake queue i.e. the
@@ -921,6 +939,10 @@
 					grid.set(SNAKE, nx, ny);
 					snake.insert(nx, ny);
 				}
+				
+				
+				
+				canvas.click();
 			}
 
 			function updateWallsOff() {
