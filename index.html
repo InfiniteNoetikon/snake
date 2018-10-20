@@ -1,21 +1,18 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta name=”viewport” content=”width=device-width, initial-scale=1″>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 		<title>Snake Game</title>
 		<link rel="icon" type="image/png" href="https://lh6.googleusercontent.com/dY0PlvfHkL-D2M4p7yqePDu4xIvVqdMXerLmDE_IGCR0mc0OO360vZwfi01GCeI9BnbY9zw=w371"></link>
 		<!-- Basic styling, centering of the canvas. -->
 		<style>
+		input.arrow{
+			opacity: 0;
+		}
+		
+		@media only screen and (min-width: 1800px) and (min-height: 673px) {
 			body {
 				background: lightgrey;
-			}
-			
-			#wrapper
-			{
-				background: red;
-				width: 100%;
-				margin-right: auto;
-				margin-left: auto;
 			}
 			
 			html, body, {
@@ -96,7 +93,618 @@
 			p.controls{
 				text-indent: 1em;
 			}
+		}
+		
+		@media only screen and (min-width: 1800px) and (max-height: 673px) {
+			body {
+				background: lightgrey;
+			}
 			
+			html, body, {
+				position:fixed;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+			}
+			
+			h1.title{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				left: 0;
+				right: 0;
+				top: 5%;
+				color: lightgrey;
+				font-size: 500%;
+				z-index: -1;
+			}
+			
+			canvas {
+				display: block;
+				position: absolute;
+				top: 28%;
+				margin-left: auto;
+				margin-right: auto;
+				background: black;
+				left: 0;
+				right: 0;
+				top = 5%
+				background: black;
+				border: 1px solid #000;
+				z-index: -1;
+			}
+			
+			input.settings {
+				align: center;
+				width: height;
+				height: 5%;
+				opacity: 1;
+				opacity: 0.4;
+				z-index: 1;
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 29%;
+				left: 63%
+			}
+			
+			input.settings2:hover{
+				opacity: 1;
+			}
+			
+			img.pause{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 35%;
+				right: 0;
+				left: 0;
+				height: 500px;
+				width: 500px;
+				opacity: 1.0;
+			}
+			
+			div.controls {
+				border: solid black;
+				background: white;
+				width: 13%;
+				height: 25%;
+				position: fixed;
+				left: 20%;
+				top: 45%;
+				padding: 0.5;
+			}
+			
+			p.controls{
+				text-indent: 1em;
+			}
+		}
+		
+		@media only screen and (max-width: 1800px) and (min-width: 1680px) and (min-height: 673px) {
+			body {
+				background: lightgrey;
+			}
+			
+			html, body, {
+				position:fixed;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+			}
+			
+			h1.title{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				left: 0;
+				right: 0;
+				top: 5%;
+				color: red;
+				font-size: 500%;
+				z-index: -1;
+			}
+			
+			canvas {
+				display: block;
+				position: absolute;
+				top: 28%;
+				margin-left: auto;
+				margin-right: auto;
+				background: black;
+				left: 0;
+				right: 0;
+				top = 5%
+				background: black;
+				border: 1px solid #000;
+				z-index: -1;
+			}
+			
+			input.settings {
+				align: center;
+				width: height;
+				height: 5%;
+				opacity: 1;
+				opacity: 0.4;
+				z-index: 1;
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 29%;
+				left: 63%
+			}
+			
+			input.settings2:hover{
+				opacity: 1;
+			}
+			
+			img.pause{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 35%;
+				right: 0;
+				left: 0;
+				height: 500px;
+				width: 500px;
+				opacity: 1.0;
+			}
+			
+			div.controls {
+				border: solid black;
+				background: white;
+				width: 13%;
+				height: 25%;
+				position: fixed;
+				left: 20%;
+				top: 45%;
+				padding: 0.5;
+			}
+			
+			p.controls{
+				text-indent: 1em;
+			}
+		}
+		
+		@media only screen and (max-width: 1800px) and (min-width: 1680px) and (max-height: 673px) {
+			body {
+				background: lightgrey;
+			}
+			
+			html, body, {
+				position:fixed;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+			}
+			
+			h1.title{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				left: 0;
+				right: 0;
+				top: 5%;
+				color: red;
+				font-size: 500%;
+				z-index: -1;
+			}
+			
+			canvas {
+				display: block;
+				position: absolute;
+				top: 28%;
+				margin-left: auto;
+				margin-right: auto;
+				background: black;
+				left: 0;
+				right: 0;
+				top = 5%
+				background: black;
+				border: 1px solid #000;
+				z-index: -1;
+			}
+			
+			input.settings {
+				align: center;
+				width: height;
+				height: 5%;
+				opacity: 1;
+				opacity: 0.4;
+				z-index: 1;
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 29%;
+				left: 63%
+			}
+			
+			input.settings2:hover{
+				opacity: 1;
+			}
+			
+			img.pause{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 35%;
+				right: 0;
+				left: 0;
+				height: 500px;
+				width: 500px;
+				opacity: 1.0;
+			}
+			
+			div.controls {
+				border: solid black;
+				background: white;
+				width: 13%;
+				height: 25%;
+				position: fixed;
+				left: 20%;
+				top: 45%;
+				padding: 0.5;
+			}
+			
+			p.controls{
+				text-indent: 1em;
+			}
+		}
+		
+		@media only screen and (max-width: 1680px) and (min-width: 1366px) and (min-height: 673px) {
+			body {
+				background: lightgrey;
+			}
+			
+			html, body, {
+				position:fixed;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+			}
+			
+			h1.title{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				left: 0;
+				right: 0;
+				top: 5%;
+				color: lightgrey;
+				font-size: 500%;
+				z-index: -1;
+			}
+			
+			canvas {
+				display: block;
+				position: absolute;
+				top: 28%;
+				margin-left: auto;
+				margin-right: auto;
+				background: black;
+				left: 0;
+				right: 0;
+				top = 5%
+				background: black;
+				border: 1px solid #000;
+				z-index: -1;
+			}
+			
+			input.settings {
+				align: center;
+				width: height;
+				height: 5%;
+				opacity: 1;
+				opacity: 0.4;
+				z-index: 1;
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 29%;
+				left: 63%
+			}
+			
+			input.settings2:hover{
+				opacity: 1;
+			}
+			
+			img.pause{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 35%;
+				right: 0;
+				left: 0;
+				height: 500px;
+				width: 500px;
+				opacity: 1.0;
+			}
+			
+			div.controls {
+				border: solid black;
+				background: white;
+				width: 13%;
+				height: 25%;
+				position: fixed;
+				left: 20%;
+				top: 45%;
+				padding: 0.5;
+			}
+			
+			p.controls{
+				text-indent: 1em;
+			}
+		}
+		
+		@media only screen and (max-width: 1680px) and (min-width: 1366px) and (max-height: 673px) {
+			body {
+				background: lightgrey;
+			}
+			
+			html, body, {
+				position:fixed;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+			}
+			
+			h1.title{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				left: 0;
+				right: 0;
+				top: 5%;
+				color: lightgrey;
+				font-size: 500%;
+				z-index: -1;
+			}
+			
+			canvas {
+				display: block;
+				position: absolute;
+				top: 28%;
+				margin-left: auto;
+				margin-right: auto;
+				background: black;
+				left: 0;
+				right: 0;
+				top = 5%
+				background: black;
+				border: 1px solid #000;
+				z-index: -1;
+			}
+			
+			input.settings {
+				align: center;
+				width: height;
+				height: 5%;
+				opacity: 1;
+				opacity: 0.4;
+				z-index: 1;
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 29%;
+				left: 63%
+			}
+			
+			input.settings2:hover{
+				opacity: 1;
+			}
+			
+			img.pause{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 35%;
+				right: 0;
+				left: 0;
+				height: 500px;
+				width: 500px;
+				opacity: 1.0;
+			}
+			
+			div.controls {
+				border: solid black;
+				background: white;
+				width: 13%;
+				height: 25%;
+				position: fixed;
+				left: 20%;
+				top: 45%;
+				padding: 0.5;
+			}
+			
+			p.controls{
+				text-indent: 1em;
+			}
+		}
+		
+		@media only screen and (max-width: 1366px) and (min-width: 800px) and (max-height: 673px) {
+			body {
+				background: lightgrey;
+			}
+			
+			html, body, {
+				position:fixed;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+			}
+			
+			h1.title{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				left: 0;
+				right: 0;
+				top: 5%;
+				color: lightgrey;
+				font-size: 500%;
+				z-index: -1;
+			}
+			
+			canvas {
+				display: block;
+				position: absolute;
+				top: 28%;
+				margin-left: auto;
+				margin-right: auto;
+				background: black;
+				left: 0;
+				right: 0;
+				top = 5%
+				background: black;
+				border: 1px solid #000;
+				z-index: -1;
+			}
+			
+			input.settings {
+				align: center;
+				width: height;
+				height: 5%;
+				opacity: 1;
+				opacity: 0.4;
+				z-index: 1;
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 29%;
+				left: 63%
+			}
+			
+			input.settings2:hover{
+				opacity: 1;
+			}
+			
+			img.pause{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 35%;
+				right: 0;
+				left: 0;
+				height: 500px;
+				width: 500px;
+				opacity: 1.0;
+			}
+			
+			div.controls {
+				border: solid black;
+				background: white;
+				width: 13%;
+				height: 25%;
+				position: fixed;
+				left: 20%;
+				top: 45%;
+				padding: 0.5;
+			}
+			
+			p.controls{
+				text-indent: 1em;
+			}
+		}
+		
+		@media only screen and (max-width: 800px) and (min-height: 0px) {
+			body {
+				background: lightgrey;
+			}
+			
+			html, body, {
+				position:fixed;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+			}
+			
+			h1.title{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 2vw;
+				margin-bottom: 0;
+				left: 0;
+				right: 0;
+				top: 5vw;
+				color: red;
+				font-size: 4.25vw;
+			}
+			
+			canvas {
+				display: block;
+				position: absolute;
+				top: 12vw;
+				left: 23vw;
+				background: black;
+				border: 1px solid #000;
+				z-index: -1;
+			}
+			
+			input.settings {
+				align: center;
+				width: height;
+				height: 3vw;
+				opacity: 0.4;
+				z-index: 1;
+				position: absolute;
+				top: 12.5vw;
+				right: 27.3vw;
+			}
+			
+			input.settings2:hover{
+				opacity: 1;
+			}
+			
+			img.pause{
+				position: absolute;
+				margin-left: auto;
+				margin-right: auto;
+				top: 14vw;
+				left: 24vw;
+				height: 48vw;
+				width: height;
+				opacity: 1.0;
+			}
+			
+			div.controls {
+				border: solid black;
+				background: white;
+				width: 20vw;
+				height: 20vw;
+				position: absolute;
+				left: 1vw;
+				top: 25vw;
+				padding: 0.5;
+			}
+			
+			h1.controls{
+				font-size: 4vw;
+			}
+			
+			p.controls{
+				font-size: 2vw;
+				text-indent: 1em;
+			}
+			
+			input.arrow{
+				width: 3vw;
+				height: width;
+				opacity: .6;
+				position: absolute;
+			}
+			
+			input.arrow:hover{
+				opacity: 1;
+			}
+		}
+
 		</style>
 	</head>
 	<body>
@@ -104,9 +712,21 @@
 			<h1 align="center" class="title"> Let's Play Snake! </h1>
 			<input type="image" onclick="changeSetting()" src="settings.png" class="settings settings2" id="set" title="Walls set to off"> 
 			<br>
-			<div id="d1" class="controls"> <h1> Controls </h1> <p class="controls"> • [spacebar]: pause </p></div>
+			<div id="d1" class="controls"> <h1 class="controls"> Controls </h1> <p class="controls"> • [spacebar]: pause </p></div>
 			<img src="pause.png" class="pause" id="pause"/>
+			<input type="image" src="up.png" class="arrow" onclick="up()" style="left: 66vw; top: 55vw;"/>
+			<br>
+			<input type="image" src="left.png" class="arrow" onclick="left()" style="left: 62.5vw; top: 58.5vw;"/>
+			<input type="image" src="down.png" class="arrow" onclick="down()" style="left: 66vw; top: 58.5vw;"/>
+			<input type="image" src="right.png" class="arrow" onclick="right()" style="left: 69.5vw; top: 58.5vw;"/>
 		<script>
+			window.addEventListener("keydown", function(e) {if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+				}
+			}, false);
+			
+			
+			
 			var
 			//constats
 			COLS = 30, ROWS = 30, SNAKE = 1, FRUIT = 2, EMPTY = 3,
@@ -114,15 +734,15 @@
 			SPACE = 32, KEY_LEFT  = 37, KEY_UP    = 38, KEY_RIGHT = 39, KEY_DOWN  = 40,
 			
 			//game objects
-			canvas, ctx, keystate, frames, score,
+			canvas, ctx, keystate, frames, score, dirl, dirr, diru, dird,
 			
 			//other objects
 			pause = 0, setting = 1, image = document.getElementById("pause");
 
 			grid = {
-				width: null,  /* number, the number of columns */
-				height: null, /* number, the number of rows */
-				_grid: null,  /* Array<any>, data representation */
+				width: null,  // number, the number of columns 
+				height: null, // number, the number of rows 
+				_grid: null,  // grid array (2D array) 
 				
 				init: function(d, c, r) {
 					this.width = c;
@@ -146,10 +766,9 @@
 			}
 
 			snake = {
-				direction: null, /* number, the direction */
-				last: null,		 /* Object, pointer to the last element in
-									the queue */
-				_queue: null,	 /* Array<number>, data representation*/
+				direction: null, // direction, indicated by a number
+				last: null,		 // last element in queue
+				_queue: null,	
 
 				init: function(d, x, y) {
 					this.direction = d;
@@ -164,11 +783,7 @@
 					this._queue.unshift({x:x, y:y});
 					this.last = this._queue[0];
 				},
-				/**
-				 * Removes and returns the first element in the queue.
-				 * 
-				 * @return {Object} the first element
-				 */
+				
 				remove: function() {
 					// pop returns the last element of an array
 					return this._queue.pop();
@@ -193,21 +808,22 @@
 			function play() {
 				// create and initiate the canvas element
 				canvas = document.createElement("canvas");
-				canvas.width = COLS*20;
-				canvas.height = ROWS*20;
 				ctx = canvas.getContext("2d");
-				
+
 				// add the canvas element to the body of the document
 				document.body.appendChild(canvas);
 				
 				// sets an base font for bigger score display
-				ctx.font = "20px Helvetica";
 				frames = 0;
 				keystate = {};
 				
 				// keeps track of the keybourd input
 				document.addEventListener("keydown", function(evt) {keystate[evt.keyCode] = true;});
 				document.addEventListener("keyup", function(evt) {delete keystate[evt.keyCode];});
+				document.addEventListener("keydown", function(evt) {if(keystate[SPACE]){
+					pause++;
+					}
+				});
 				
 				// intatiate game objects and starts the game loop
 				init();
@@ -224,9 +840,6 @@
 			}
 			
 			function loop() {
-				if (keystate[SPACE]){
-					pause++;
-				}
 				if (pause % 2 == 0){
 					image.style.opacity = 0;
 					switch (setting){
@@ -251,16 +864,16 @@
 				frames++;
 				// changing direction of the snake depending on which keys
 				// that are pressed
-				if (keystate[KEY_LEFT] && !keystate[KEY_UP] && !keystate[KEY_RIGHT] && !keystate[KEY_DOWN] && snake.direction !== RIGHT ) {
+				if ((keystate[KEY_LEFT] && !keystate[KEY_UP] && !keystate[KEY_RIGHT] && !keystate[KEY_DOWN] && snake.direction !== RIGHT) || dirl) {
 					snake.direction = LEFT;
 				}
-				if (keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_LEFT] && !keystate[KEY_RIGHT] && snake.direction !== DOWN) {
+				if ((keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_LEFT] && !keystate[KEY_RIGHT] && snake.direction !== DOWN) || diru) {
 					snake.direction = UP;
 				}
-				if (keystate[KEY_RIGHT] && !keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_LEFT] && snake.direction !== LEFT) {
+				if ((keystate[KEY_RIGHT] && !keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_LEFT] && snake.direction !== LEFT) || dirr) {
 					snake.direction = RIGHT;
 				}
-				if (keystate[KEY_DOWN] && !keystate[KEY_LEFT] && !keystate[KEY_UP] && !keystate[KEY_RIGHT] && snake.direction !== UP) {
+				if ((keystate[KEY_DOWN] && !keystate[KEY_LEFT] && !keystate[KEY_UP] && !keystate[KEY_RIGHT] && snake.direction !== UP) || dird) {
 					snake.direction = DOWN;
 				}
 				// each five frames update the game state.
@@ -317,15 +930,31 @@
 				if (keystate[KEY_LEFT] && snake.direction !== RIGHT && !keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_RIGHT]) {
 					snake.direction = LEFT;
 				}
+				else if (dirl && snake.direction !== RIGHT && !dirr && !dird && !diru){
+					snake.direction = LEFT;
+				}
 				if (keystate[KEY_UP] && snake.direction !== DOWN && !keystate[KEY_LEFT] && !keystate[KEY_DOWN] && !keystate[KEY_RIGHT]) {
+					snake.direction = UP;
+				}
+				else if(diru && snake.direction !== DOWN && !dirr && !dirl && !dird){
 					snake.direction = UP;
 				}
 				if (keystate[KEY_RIGHT] && snake.direction !== LEFT && !keystate[KEY_UP] && !keystate[KEY_DOWN] && !keystate[KEY_LEFT]) {
 					snake.direction = RIGHT;
 				}
+				else if(dirr && snake.direction !== LEFT && !dird && !dirl && !diru){
+					snake.direction = RIGHT;
+				}
 				if (keystate[KEY_DOWN] && snake.direction !== UP && !keystate[KEY_UP] && !keystate[KEY_LEFT] && !keystate[KEY_RIGHT]) {
 					snake.direction = DOWN;
 				}
+				else if (dird && snake.direction !== UP && !dirr && !dirl && !diru){
+					snake.direction = DOWN;
+				}
+				dirr = false;
+				diru = false;
+				dirl = false;
+				dird = false;
 				
 				// each five frames update the game state.
 				if (frames%5 === 0) {
@@ -386,35 +1015,69 @@
 					snake.insert(nx, ny);
 				}
 				
+				
 			}
 
 			function draw() {
-				var tw = canvas.width/grid.width;
-				var th = canvas.height/grid.height;
+				if (window.innerWidth <= 800){
+					canvas.style.width = '50vw';
+					canvas.style.height = '50vw';
+					var tw = canvas.width/grid.width;
+					var th = canvas.height/grid.height;
 
-				for (var x=0; x < grid.width; x++) {
-					for (var y=0; y < grid.height; y++) {
+					for (var x=0; x < grid.width; x++) {
+						for (var y=0; y < grid.height; y++) {
 
-						switch (grid.get(x, y)) {
-							case EMPTY:
-								ctx.fillStyle = "black";
-								ctx.fillRect(x*tw, y*th, tw, th);
-								break;
-							case SNAKE:
-								ctx.fillStyle = "green";
-								ctx.fillRect(x*tw, y*th, tw-1, th-1);
-								break;
-							case FRUIT:
-								ctx.fillStyle = "#f00";
-								ctx.fillRect(x*tw, y*th, tw-1, th-1);
-								break;
+							switch (grid.get(x, y)) {
+								case EMPTY:
+									ctx.fillStyle = "black";
+									ctx.fillRect(x*tw, y*th, tw, th);
+									break;
+								case SNAKE:
+									ctx.fillStyle = "green";
+									ctx.fillRect(x*tw, y*th, tw, th);
+									break;
+								case FRUIT:
+									ctx.fillStyle = "#f00";
+									ctx.fillRect(x*tw, y*th, tw, th);
+									break;
+							}
 						}
 					}
+					ctx.fillStyle = "White";
+					ctx.font = "12px Helvetica"
+					ctx.fillText("SCORE: " + score, 5, canvas.height-10);
 				}
+				else{
+					canvas.width = 600;
+					canvas.height = 600;
+					var tw = canvas.width/grid.width;
+					var th = canvas.height/grid.height;
 
-				ctx.fillStyle = "White";
-				
-				ctx.fillText("SCORE: " + score, 10, canvas.height-10);
+					for (var x=0; x < grid.width; x++) {
+						for (var y=0; y < grid.height; y++) {
+
+							switch (grid.get(x, y)) {
+								case EMPTY:
+									ctx.fillStyle = "black";
+									ctx.fillRect(x*tw, y*th, tw, th);
+									break;
+								case SNAKE:
+									ctx.fillStyle = "green";
+									ctx.fillRect(x*tw, y*th, tw-1, th-1);
+									break;
+								case FRUIT:
+									ctx.fillStyle = "#f00";
+									ctx.fillRect(x*tw, y*th, tw-1, th-1);
+									break;
+							}
+						}
+					}
+					ctx.fillStyle = "White";
+					ctx.font = "20px Helvetica"
+					ctx.fillText("SCORE: " + score, 10, canvas.height-10);
+				}
+			
 			}
 			
 			function changeSetting(){
@@ -432,6 +1095,22 @@
 				}
 			}
 			
+			function left(){
+				dirl = true;
+			}
+			
+			function right(){
+				dirr = true;
+			}
+			
+			function up(){
+				diru = true;
+			}
+			
+			function down(){
+				dird = true;
+			}
+
 
 			play();
 		</script>
